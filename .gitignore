@@ -1,0 +1,5 @@
+﻿# fichiers a ne pas envoyer
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
