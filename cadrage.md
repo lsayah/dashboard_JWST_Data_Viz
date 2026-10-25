@@ -25,11 +25,11 @@ la décision qu'elle doit prendre --> **quelles planètes mettre dans la demande
 
 ## 3. les KPI
 
-3 KPIs, chacun avec un contexte écrit en dessous (comparaison ou tendance)
+3 KPI --> chacun avec un contexte écrit en dessous (comparaison ou tendance)
 
 | KPI | valeur | contexte | pourquoi c'est actionnable |
 |---|---|---|---|
-| **planètes « type Terre »** (taille < 2 × la Terre et dans la ZH) | 29 | sur 5 903 exoplanètes connues | c'est la taille du vivier. sa change si on bouge les critères |
+| **planètes "type Terre"** (taille < 2 × la Terre et dans la ZH) | 29 | sur 5 903 exoplanètes connues | c'est la taille du vivier. sa change si on bouge les critères |
 | **assez proches pour JWST** (les 29, à moins de 50 pc) | 9 | 8 sur 9 trouvées depuis 2017, la plupart par TESS | c'est directement la liste à mettre dans la demande |
 | **bonne température mais taille inconnue** | 60 % (150 sur 249) | 150 planètes en ZH dont on sait pas si elles sont rocheuses --> à mesurer | dit où faire des observations de suivi pour allonger la liste |
 
@@ -49,18 +49,18 @@ la décision qu'elle doit prendre --> **quelles planètes mettre dans la demande
 
 **zone KPIs --> page 1, synthèse (`Synthese.py`)**
 - le titre = le message, avec les nombres recalculés selon les filtres
-- un encadré de 2 lignes : c'est quoi JWST + c'est quoi « type Terre »
-- les 3 KPIs côte à côte, contexte écrit en dessous (pas de flèche delta, elle ferait croire à une hausse)
-- un graphique distance x taille en échelle log. les cibles en orange, le reste en gris --> on les voit en moins de 5 secondes. les 2 seuils sont tracés en pointillés
+- un encadré de 2 lignes explication rapide --> c'est quoi JWST et "type Terre"
+- les 3 KPI côte à côte. Contexte écrit en dessous (pas de flèche delta sa pourrais faire croire à une hausse)
+- un graphique distance x taille en échelle log. les cibles en orange, le reste en gris --> on les voit en moins de 5 secondes direct. les 2 seuils sont en pointillés
 
 **zone détail --> page 2, détail des cibles (`pages/1_Detail_des_cibles.py`)**, un onglet par graphique
 - le titre : le nombre de cibles et la distance de la plus proche en années-lumière
 - les cibles classées par distance (barres horizontales, axe qui part de 0)
-- les découvertes de planètes « type Terre » par année --> les lointaines viennent de Kepler (2013-2016), les cibles proches de TESS (depuis 2018)
-- le tableau des planètes « type Terre » (nom, taille, distance, étoile, année), les cibles en premier
+- les découvertes de planètes "type Terre" par année --> les lointaines viennent de Kepler (2013-2016), les cibles proches de TESS (depuis 2018)
+- le tableau des planètes "type Terre" (nom, taille, distance, étoile, année), les cibles en premier
 
 **zone détail --> page 3, données manquantes (`pages/2_Donnees_manquantes.py`)**
 - la part de valeurs manquantes avant / après remplissage
 - la liste des planètes à la bonne température qu'on peut pas classer (taille ou distance inconnue), ex : TRAPPIST-1, Proxima b
 
-**côté technique** --> `@st.cache_data` sur le chargement des données, et `utils.py` partagé par toutes les pages (chargement + filtres)
+**aspect technique** --> `@st.cache_data` sur le chargement des données, et `utils.py` partagé par toutes les pages (chargement + filtres)

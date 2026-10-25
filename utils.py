@@ -1,5 +1,7 @@
 
-# tout ce qui sert à toutes les pages : chargement des données + filtres
+# Utils.py sert à toutes les pages 
+# - chargement des données 
+# - filtres
 
 # IMPORT
 from pathlib import Path
@@ -11,7 +13,7 @@ import streamlit as st
 # chemin à partir de ce fichier, sinon sa casse sur Streamlit Cloud (bug 3 du notebook)
 DATA_PATH = Path(__file__).parent / "data" / "exoplanets.csv"
 
-# 92 colonnes dans le csv, j'en garde 11
+# 92 colonnes dans le csv --> j'en garde 11
 COLUMNS = ["pl_name", "hostname", "default_flag", "disc_year", "discoverymethod",
            "pl_rade", "pl_orbsmax", "pl_eqt", "st_rad", "st_teff", "sy_dist"]
 
@@ -22,7 +24,7 @@ FAR = "#5C7CFA"
 GREY = "#B0B0B0"
 
 
-# au final les 9 cibles tournent toutes autour d'une naine rouge, pas une seule autour d'une étoile comme le Soleil
+# au final les 9 cibles tournent toutes autour d'une naine rouge mais pas une seule autour d'une étoile comme le Soleil
 def star_type(teff):
     if pd.isna(teff):
         return "Inconnu"
@@ -86,7 +88,7 @@ def sidebar_filters(df):
     types = sorted(df["star_type"].unique())
     year_min, year_max = int(df["disc_year"].min()), int(df["disc_year"].max())
 
-    # sans sa streamlit remet les filtres par défaut à chaque changement de page
+    # Evite de remetre les filtres par défaut à chaque changement de page
     defaults = {"max_dist": 50, "max_radius": 2.0, "star_types": types,
                 "years": (year_min, year_max)}
     for key, value in defaults.items():
@@ -97,7 +99,7 @@ def sidebar_filters(df):
     max_dist = st.sidebar.slider(
         "Distance max (parsecs)", 10, 200, step=5, key="max_dist",
         help="1 parsec ≈ 3,26 années-lumière. Plus loin, JWST capte trop peu de lumière.")
-    # au-delà de 2 × la Terre c'est plutôt une boule de gaz, pas idéal pour y poser le pied
+    # au-delà de 2 × la Terre c'est plutôt une boule de gaz (pas top pour s'y poser)
     max_radius = st.sidebar.slider(
         "Taille max d'une planète rocheuse (× Terre)", 1.0, 3.0, step=0.1, key="max_radius",
         help="Au-delà de 2 fois la Terre, la planète est probablement gazeuse.")
