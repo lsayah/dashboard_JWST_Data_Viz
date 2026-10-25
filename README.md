@@ -2,7 +2,7 @@
 
 dashboard Streamlit sur les exoplanètes de la NASA -->  sur 5 903 planètes connues --> 9 sont "type Terre" et assez proches pour être étudiées par le télescope JWST
 
-**en ligne** : 
+**en ligne** : https://dashboardjwst.streamlit.app/
 
 ## lancer en local
 

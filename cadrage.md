@@ -1,7 +1,7 @@
 # Cadrage --> dashboard "cibles habitables pour JWST"
 
 **Données** : NASA Exoplanet Archive, même dataset que pour le cours AED (comme convenu dans le sujet et puis ça si prète bien). 5 903 exoplanètes confirmées (1 ligne par planète avec `default_flag == 1`)
-**Lien du dashboard** : 
+**Lien du dashboard** : https://dashboardjwst.streamlit.app/
 
 ---
 
